@@ -1,6 +1,6 @@
 # Script : execute-datafactory-pipeline
 
-This script start an Azure Data Factory pipeline and wait until the script is finished.
+Powershell script to start an Azure Data Factory pipeline and wait until the pipline run is finished.
 
 ## Installation
 
