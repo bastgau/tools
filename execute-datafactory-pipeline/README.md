@@ -1,4 +1,4 @@
-# execute-datafactory-pipeline
+# Script : execute-datafactory-pipeline
 
 This script start an Azure Data Factory pipeline and wait until the script is finished.
 
@@ -29,4 +29,8 @@ $Parameters = @{
 
 $ pwsh ./execute-datafactory-pipeline.ps1
 
+You need to specify in the prompt where the log file will be located and the pipeline name.
+
 Enjoy !
+
+
