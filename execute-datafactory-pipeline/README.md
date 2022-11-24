@@ -27,7 +27,9 @@ $Parameters = @{
 
 ## Usage
 
+```
 $ pwsh ./execute-datafactory-pipeline.ps1
+```
 
 You need to specify in the prompt where the log file will be located and the pipeline name.
 
