@@ -1,0 +1,102 @@
+{
+    "name": "Main",
+    "properties": {
+        "activities": [
+            {
+                "name": "Start",
+                "type": "Wait",
+                "dependsOn": [],
+                "userProperties": [],
+                "typeProperties": {
+                    "waitTimeInSeconds": 5
+                }
+            },
+            {
+                "name": "End",
+                "type": "Wait",
+                "dependsOn": [
+                    {
+                        "activity": "Condition",
+                        "dependencyConditions": [
+                            "Succeeded"
+                        ]
+                    }
+                ],
+                "userProperties": [],
+                "typeProperties": {
+                    "waitTimeInSeconds": 5
+                }
+            },
+            {
+                "name": "Condition",
+                "type": "Switch",
+                "dependsOn": [
+                    {
+                        "activity": "Start",
+                        "dependencyConditions": [
+                            "Succeeded"
+                        ]
+                    }
+                ],
+                "userProperties": [],
+                "typeProperties": {
+                    "on": {
+                        "value": "@string(pipeline().parameters.wait_option)",
+                        "type": "Expression"
+                    },
+                    "cases": [
+                        {
+                            "value": "Wait5",
+                            "activities": [
+                                {
+                                    "name": "Wait 5s",
+                                    "type": "Wait",
+                                    "dependsOn": [],
+                                    "userProperties": [],
+                                    "typeProperties": {
+                                        "waitTimeInSeconds": 5
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "value": "Wait10",
+                            "activities": [
+                                {
+                                    "name": "Wait10",
+                                    "type": "Wait",
+                                    "dependsOn": [],
+                                    "userProperties": [],
+                                    "typeProperties": {
+                                        "waitTimeInSeconds": 100
+                                    }
+                                }
+                            ]
+                        }
+                    ],
+                    "defaultActivities": [
+                        {
+                            "name": "Wrong parameter",
+                            "type": "Fail",
+                            "dependsOn": [],
+                            "userProperties": [],
+                            "typeProperties": {
+                                "message": "Wrong parameter",
+                                "errorCode": "500"
+                            }
+                        }
+                    ]
+                }
+            }
+        ],
+        "concurrency": 1,
+        "parameters": {
+            "wait_option": {
+                "type": "string"
+            }
+        },
+        "annotations": [],
+        "lastPublishTime": "2022-11-24T15:48:41Z"
+    },
+    "type": "Microsoft.DataFactory/factories/pipelines"
+}
