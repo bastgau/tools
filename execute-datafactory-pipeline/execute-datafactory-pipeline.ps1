@@ -49,7 +49,7 @@ try {
     # Controle de l'existence des modules.
     LogWrite("> Controle de l'existence des modules.")
 
-    $LineQty = Get-Module -Name Az -ListAvailable | Measure-Object –Line | % Lines
+    $LineQty = Get-Module -Name Az.Accounts -ListAvailable | Measure-Object –Line | % Lines
     
     if($LineQty -eq 1) {
         LogWrite("Tous les modules existent.")
