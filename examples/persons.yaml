@@ -1,8 +1,7 @@
 ---
-person:
-  - name: Alice
-    age: 25
-    city: Paris
-  - name: Boris
-    age: 36
-    city: Nice
+- name: Alice
+  age: 17
+  city: Paris
+- name: Boris
+  age: 22
+  city: Nice
